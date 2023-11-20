@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QR_Generator_MAUI.MainPage">
+
+    <VerticalStackLayout Spacing="15" Padding="20" HorizontalOptions="Center" VerticalOptions="Start">
+
+        <Label Text="🔳 QR Code Generator"
+           FontSize="Large"
+           FontAttributes="Bold"
+           HorizontalOptions="Center"
+           Margin="0,0,0,10"
+           FontFamily="Arial" />
+
+        <Editor x:Name="inputText"
+            Placeholder="Enter text here"
+            HeightRequest="100"
+            WidthRequest="300"
+            BackgroundColor="#F0F0F0"
+            TextColor="Black"
+            FontFamily="Arial" />
+
+        <Button x:Name="generateButton"
+            Text="Generate"
+            BackgroundColor="#4CAF50"
+            TextColor="White"
+            WidthRequest="150"
+            Clicked="OnGenerateClicked"
+            
+            Style="{StaticResource ButtonStyle}" />
+
+        <Image x:Name="qrCodeImage"
+           HeightRequest="200"
+           WidthRequest="200"
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" />
+
+        <Button x:Name="saveButton"
+            Text="Save"
+            BackgroundColor="#4CAF50"
+            TextColor="White"
+            WidthRequest="150"
+            Clicked="OnSaveClicked"
+            
+            Style="{StaticResource ButtonStyle}" />
+
+    </VerticalStackLayout>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#4CAF50" />
+                <Setter Property="TextColor" Value="White" />
+                <Style.Triggers>
+                    <Trigger TargetType="Button" Property="IsPressed" Value="True">
+                        <Setter Property="BackgroundColor" Value="#388E3C" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+</ContentPage>
